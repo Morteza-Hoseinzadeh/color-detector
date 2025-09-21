@@ -6,6 +6,7 @@ import { Grid2 } from '@mui/material';
 import Header from '../UI/Header';
 import Sidebar from '@/components/UI/Sidebar';
 import PaletteCard from '../UI/PaletteCard';
+import ColorsPreview from '../UI/ColorsPreview';
 
 export default function Home() {
   return (
@@ -16,11 +17,11 @@ export default function Home() {
       <Grid2 size={2}>
         <Sidebar />
       </Grid2>
-      <Grid2 size={7}>
+      <Grid2 size={6}>
         <PaletteCard />
       </Grid2>
-      <Grid2 size={3}>
-        <span>Color Palette</span>
+      <Grid2 size={4}>
+        <ColorsPreview />
       </Grid2>
     </Grid2>
   );
