@@ -27,7 +27,7 @@ export const lightTheme = createTheme({
     },
     background: {
       default: '#f4f4f4',
-      paper: 'rgba(0, 0, 0, 0.08)',
+      paper: '#e9e9e9',
     },
     text: {
       primary: '#333333',
@@ -55,7 +55,7 @@ export const darkTheme = createTheme({
     },
     background: {
       default: '#252525',
-      paper: 'rgba(0, 0, 0, 0.4)',
+      paper: '#202020',
     },
     text: {
       primary: '#ffffff',
