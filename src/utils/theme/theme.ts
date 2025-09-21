@@ -5,7 +5,7 @@ const baseThemeOptions = {
     values: { xs: 0, sm: 600, md: 900, lg: 1200, xl: 1536 },
   },
   typography: {
-    fontFamily: `yekanbakh`,
+    fontFamily: `SFPro`,
   },
 };
 
@@ -14,26 +14,26 @@ export const lightTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#A970FF', // Electric Purple
-      light: '#C084FC',
-      dark: '#7C3AED',
+      main: '#1e90ff',
+      light: '#63b3ed',
+      dark: '#0b60d1',
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#00FFAA', // Neon Green
-      light: '#5CFFCC',
-      dark: '#00CC88',
-      contrastText: '#000000',
+      main: '#8950F7',
+      light: '#9b59b6',
+      dark: '#4b0082',
+      contrastText: '#ffffff',
     },
     background: {
-      default: '#F8F8FF', // Mint White
-      paper: '#D4E5FF', // Soft Sky
+      default: '#f4f4f4',
+      paper: '#ffffff',
     },
     text: {
-      primary: '#1E1E2F', // Midnight
-      secondary: '#A970FF',
+      primary: '#333333',
+      secondary: '#4b0082',
     },
-    divider: '#CCCCCC',
+    divider: '#cccccc',
   },
 });
 
@@ -42,25 +42,25 @@ export const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#A970FF', // Electric Purple
-      light: '#C084FC',
-      dark: '#7C3AED',
+      main: '#1e90ff',
+      light: '#5eaaff',
+      dark: '#187bcd',
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#00FFAA', // Neon Green
-      light: '#5CFFCC',
-      dark: '#00CC88',
-      contrastText: '#000000',
+      main: '#8950F7',
+      light: '#ba7fdc',
+      dark: '#6a0dad',
+      contrastText: '#ffffff',
     },
     background: {
-      default: '#1E1E2F', // Midnight Blue
-      paper: '#2A2A3C', // Slightly lighter than Midnight
+      default: '#252525',
+      paper: '#1e1e1e',
     },
     text: {
-      primary: '#F8F8FF', // Mint White
-      secondary: '#A970FF',
+      primary: '#ffffff',
+      secondary: '#c5a3ff',
     },
-    divider: '#3C3C3C',
+    divider: '#3c3c3c',
   },
 });

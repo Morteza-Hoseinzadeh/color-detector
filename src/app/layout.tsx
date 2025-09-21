@@ -7,7 +7,7 @@ import '@/utils/styles/globals.css';
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fa" dir="rtl">
+    <html lang="en" dir="ltr">
       <Provider store={store}>
         <ThemedLayout>{children}</ThemedLayout>
       </Provider>
