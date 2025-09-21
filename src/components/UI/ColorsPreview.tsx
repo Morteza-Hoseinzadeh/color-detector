@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Typography, Chip, IconButton, Tooltip, Grid2 } from '@mui/material';
-import { IoCheckmarkCircle, IoCopyOutline } from 'react-icons/io5';
+import { IoCheckmarkCircle, IoClose, IoCopyOutline } from 'react-icons/io5';
 
 export default function ColorsPreview() {
   const [copiedColor, setCopiedColor] = useState(null);
@@ -77,9 +77,14 @@ export default function ColorsPreview() {
     <Box sx={styles.container}>
       {/* Primary Color */}
       <Box sx={styles.section}>
-        <Typography variant="h6" gutterBottom>
-          Primary Color
-        </Typography>
+        <Box width={'100%'} display={'flex'} alignItems={'center'} justifyContent={'space-between'} mb={4}>
+          <Typography variant="h6" gutterBottom>
+            Primary Color
+          </Typography>
+          <IconButton>
+            <IoClose />
+          </IconButton>
+        </Box>
         <ColorSwatch color="primary" name="Primary" value={colorConfig.primary} size="large" />
       </Box>
 

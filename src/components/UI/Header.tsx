@@ -18,11 +18,11 @@ export default function Header() {
     <Box sx={{ ...styles.header }}>
       {/* Menu Items Section */}
       <Box sx={styles.menuContainer}>
-        <Box display={'flex'} alignItems={'center'} gap={0.3} color={'primary.main'}>
+        <Box display={'flex'} alignItems={'center'} gap={0.3} color={'primary.main'} mr={1}>
           <IconButton size="small" sx={styles.iconButton}>
-            <GiGrapes size={20} />
+            <GiGrapes size={26} />
           </IconButton>
-          <Typography>AetherUI</Typography>
+          <Typography variant='h6'>AetherUI</Typography>
         </Box>
         {menuItems.map((item) => (
           <Typography key={item} sx={styles.menuItem} variant="body2">

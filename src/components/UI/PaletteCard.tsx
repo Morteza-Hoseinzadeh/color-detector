@@ -7,15 +7,41 @@ import { IoCopy } from 'react-icons/io5';
 export default function PaletteCard() {
   // Mock data for different design system categories
   const colorPalette = [
-    { name: 'Primary Blue', value: '#1e90ff', variable: '--color-primary' },
-    { name: 'Secondary Blue', value: '#187bcd', variable: '--color-secondary' },
-    { name: 'Light Blue', value: '#5eaaff', variable: '--color-accent' },
+    // Primary Colors from theme
+    { name: 'Primary Main', value: '#1e90ff', variable: '--color-primary-main' },
+    { name: 'Primary Light', value: '#63b3ed', variable: '--color-primary-light' },
+    { name: 'Primary Dark', value: '#0b60d1', variable: '--color-primary-dark' },
+
+    // Secondary Colors from theme
+    { name: 'Secondary Main', value: '#8950F7', variable: '--color-secondary-main' },
+    { name: 'Secondary Light', value: '#9b59b6', variable: '--color-secondary-light' },
+    { name: 'Secondary Dark', value: '#4b0082', variable: '--color-secondary-dark' },
+
+    // Background Colors from theme
+    { name: 'Background Default', value: '#f4f4f4', variable: '--background-default' },
+    { name: 'Background Paper', value: '#e9e9e9', variable: '--background-paper' },
+
+    // Text Colors from theme
+    { name: 'Text Primary', value: '#333333', variable: '--text-primary' },
+    { name: 'Text Secondary', value: '#4b0082', variable: '--text-secondary' },
+
+    // Divider Color from theme
+    { name: 'Divider', value: '#cccccc', variable: '--divider' },
+
+    // Additional Blues (your existing palette)
+    { name: 'Secondary Blue', value: '#187bcd', variable: '--color-secondary-blue' },
+    { name: 'Light Blue', value: '#5eaaff', variable: '--color-light-blue' },
+
+    // Success, Error, Warning Colors (commonly used)
     { name: 'Success', value: '#4caf50', variable: '--color-success' },
     { name: 'Error', value: '#f44336', variable: '--color-error' },
     { name: 'Warning', value: '#ff9800', variable: '--color-warning' },
-    { name: 'Dark Text', value: '#333333', variable: '--text-primary' },
-    { name: 'Gray Text', value: '#666666', variable: '--text-secondary' },
-    { name: 'Background', value: '#f5f5f5', variable: '--bg-default' },
+    { name: 'Info', value: '#2196f3', variable: '--color-info' },
+
+    // Grayscale for completeness
+    { name: 'Gray Light', value: '#f8f9fa', variable: '--gray-light' },
+    { name: 'Gray Medium', value: '#6c757d', variable: '--gray-medium' },
+    { name: 'Gray Dark', value: '#343a40', variable: '--gray-dark' },
   ];
 
   const shadows = [
@@ -78,9 +104,11 @@ export default function PaletteCard() {
                 <Typography variant="caption" sx={styles.itemValue}>
                   {color.value}
                 </Typography>
-                <IconButton sx={{ color: 'text.secondary', ml: '4px' }}>
-                  <IoCopy size={16} />
-                </IconButton>
+                <Tooltip title={`Click to copy ${color.value}`}>
+                  <IconButton sx={{ color: 'text.secondary', ml: '4px' }}>
+                    <IoCopy size={16} />
+                  </IconButton>
+                </Tooltip>
               </Box>
               <Chip label={color.variable} size="small" sx={styles.chip} />
             </Grid2>
@@ -97,9 +125,16 @@ export default function PaletteCard() {
           {shadows.map((shadow, index) => (
             <Grid2 key={index} size={6} sx={{ ...styles.gridItem, cursor: 'pointer' }}>
               <Box sx={{ ...styles.shadowBox, boxShadow: shadow.value }} />
-              <Typography variant="body2" sx={styles.itemName} fontWeight="bold">
-                {shadow.name}
-              </Typography>
+              <Box mb={'8px'}>
+                <Typography variant="caption" sx={styles.itemValue}>
+                  {shadow.name}
+                </Typography>
+                <Tooltip title={`Click to copy '${shadow.value}'`}>
+                  <IconButton sx={{ color: 'text.secondary', ml: '4px' }}>
+                    <IoCopy size={16} />
+                  </IconButton>
+                </Tooltip>
+              </Box>
               <Chip label={shadow.variable} size="small" sx={styles.chip} />
             </Grid2>
           ))}
@@ -114,10 +149,7 @@ export default function PaletteCard() {
         <Grid2 container spacing={2}>
           {typography.map((font, index) => (
             <Grid2 key={index} size={6} sx={styles.gridItem}>
-              <Typography
-                variant={index === 0 ? 'h1' : index === 1 ? 'h2' : index === 2 ? 'h3' : 'body1'}
-                sx={{ fontFamily: font.family, fontWeight: font.weight, fontSize: font.size, color: 'text.primary' }}
-              >
+              <Typography variant={index === 0 ? 'h1' : index === 1 ? 'h2' : index === 2 ? 'h3' : 'body1'} sx={{ fontFamily: font.family, fontWeight: font.weight, fontSize: font.size, color: 'text.primary' }}>
                 {font.name}
               </Typography>
               <Typography variant="caption" sx={styles.itemValue}>
@@ -145,9 +177,11 @@ export default function PaletteCard() {
                 <Typography variant="caption" sx={styles.itemValue}>
                   {space.value}
                 </Typography>
-                <IconButton sx={{ color: 'text.secondary', ml: '8px' }}>
-                  <IoCopy size={16} />
-                </IconButton>
+                <Tooltip title={`Click to copy ${space.value}`}>
+                  <IconButton sx={{ color: 'text.secondary', ml: '8px' }}>
+                    <IoCopy size={16} />
+                  </IconButton>
+                </Tooltip>
               </Box>
               <Chip label={space.variable} size="small" sx={styles.chip} />
             </Grid2>
@@ -171,9 +205,11 @@ export default function PaletteCard() {
                 <Typography variant="caption" sx={styles.itemValue}>
                   {radius.value}
                 </Typography>
-                <IconButton sx={{ color: 'text.secondary', ml: '8px' }}>
-                  <IoCopy size={16} />
-                </IconButton>
+                <Tooltip title={`Click to copy ${radius.value}`}>
+                  <IconButton sx={{ color: 'text.secondary', ml: '8px' }}>
+                    <IoCopy size={16} />
+                  </IconButton>
+                </Tooltip>
               </Box>
               <Chip label={radius.variable} size="small" sx={styles.chip} />
             </Grid2>
