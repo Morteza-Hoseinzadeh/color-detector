@@ -22,7 +22,7 @@ export default function Header() {
           <IconButton size="small" sx={styles.iconButton}>
             <GiGrapes size={20} />
           </IconButton>
-          <Typography>Title</Typography>
+          <Typography>AetherUI</Typography>
         </Box>
         {menuItems.map((item) => (
           <Typography key={item} sx={styles.menuItem} variant="body2">

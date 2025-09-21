@@ -62,7 +62,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    width: 250,
+    width: '100%',
     height: '85vh',
     backgroundColor: 'background.paper',
     borderRadius: '16px',
