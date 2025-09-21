@@ -2,10 +2,12 @@
 
 import React from 'react';
 import { Box, Typography, IconButton } from '@mui/material';
-import { FaApple } from 'react-icons/fa';
-import { IoBluetooth, IoWifiOutline, IoBatteryCharging, IoMoon, IoSearch, IoSunny } from 'react-icons/io5';
 import { useThemeMode } from '@/utils/hooks/useThemeMode';
+
+// Icons
+import { IoBluetooth, IoWifiOutline, IoBatteryCharging, IoMoon, IoSearch, IoSunny } from 'react-icons/io5';
 import { LiaHistorySolid } from 'react-icons/lia';
+import { GiGrapes } from 'react-icons/gi';
 
 export default function Header() {
   const { toggleTheme, isDarkMode } = useThemeMode();
@@ -13,12 +15,15 @@ export default function Header() {
   const menuItems = ['Finder', 'File', 'Edit', 'View', 'Go', 'Window', 'Help'];
 
   return (
-    <Box sx={{ ...styles.header, background: isDarkMode ? 'rgba(0, 0, 0, 0.1)' : 'rgba(255, 255, 255, 0.5)' }}>
+    <Box sx={{ ...styles.header, background: isDarkMode ? 'rgba(0, 0, 0, 0.4)' : 'rgba(0, 0, 0, 0.08)' }}>
       {/* Menu Items Section */}
       <Box sx={styles.menuContainer}>
-        <IconButton size="small" sx={styles.iconButton}>
-          <FaApple size={18} />
-        </IconButton>
+        <Box display={'flex'} alignItems={'center'} gap={0.3} color={'primary.main'}>
+          <IconButton size="small" sx={styles.iconButton}>
+            <GiGrapes size={20} />
+          </IconButton>
+          <Typography>Title</Typography>
+        </Box>
         {menuItems.map((item) => (
           <Typography key={item} sx={styles.menuItem} variant="body2">
             {item}
@@ -52,10 +57,7 @@ export default function Header() {
         </Typography>
 
         <Typography variant="caption" sx={styles.time}>
-          {new Date().toLocaleTimeString([], {
-            hour: '2-digit',
-            minute: '2-digit',
-          })}
+          {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', weekday: 'long' })}
         </Typography>
 
         <IconButton size="small" sx={styles.iconButton} onClick={toggleTheme} aria-label="Toggle theme">
@@ -76,7 +78,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: '0.75rem',
+    padding: '0.65rem 1rem',
     borderRadius: '16px',
     mt: 2,
     backdropFilter: 'blur(7.5px)',
@@ -86,7 +88,7 @@ const styles = {
   menuContainer: {
     display: 'flex',
     alignItems: 'center',
-    gap: '1.25rem',
+    gap: '1.5rem',
   },
   iconButton: {
     padding: '0.25rem',
@@ -99,8 +101,9 @@ const styles = {
     fontWeight: 500,
     cursor: 'pointer',
     fontSize: '0.875rem',
+    transition: 'all ease-in-out 0.1s',
     '&:hover': {
-      color: 'primary.main',
+      color: 'text.disabled',
     },
   },
   systemInfo: {
