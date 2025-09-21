@@ -15,7 +15,7 @@ export default function Header() {
   const menuItems = ['Finder', 'File', 'Edit', 'View', 'Go', 'Window', 'Help'];
 
   return (
-    <Box sx={{ ...styles.header, background: isDarkMode ? 'rgba(0, 0, 0, 0.4)' : 'rgba(0, 0, 0, 0.08)' }}>
+    <Box sx={{ ...styles.header }}>
       {/* Menu Items Section */}
       <Box sx={styles.menuContainer}>
         <Box display={'flex'} alignItems={'center'} gap={0.3} color={'primary.main'}>
@@ -84,6 +84,7 @@ const styles = {
     backdropFilter: 'blur(7.5px)',
     boxSizing: 'border-box',
     color: 'text.primary',
+    backgroundColor: 'background.paper',
   },
   menuContainer: {
     display: 'flex',
