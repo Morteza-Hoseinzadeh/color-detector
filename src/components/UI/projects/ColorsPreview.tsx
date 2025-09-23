@@ -169,7 +169,7 @@ const styles = {
     maxWidth: 1200,
     margin: '0 auto',
     overflow: 'auto', // Added overflow to main container
-    maxHeight: '100vh', // Ensure it doesn't exceed viewport height
+    maxHeight: '85vh', // Ensure it doesn't exceed viewport height
   },
   section: {
     mb: 4,

@@ -5,8 +5,8 @@ import { Grid2, Drawer } from '@mui/material';
 
 import Header from '../UI/Header';
 import Sidebar from '@/components/UI/Sidebar';
-import PaletteCard from '../UI/PaletteCard';
-import ColorsPreview from '../UI/ColorsPreview';
+import PaletteCard from '../UI/projects/PaletteCard';
+import ColorsPreview from '../UI/projects/ColorsPreview';
 
 export default function Projects() {
   const [showPreview, setShowPreview] = useState(false);
@@ -29,14 +29,15 @@ export default function Projects() {
         <Sidebar isActive={isActive} setIsActive={setIsActive} mocks_project={mocks_project} />
       </Grid2>
 
-      <Grid2 size={10} zIndex={1}>
+      <Grid2 size={showPreview ? 6 : 10} zIndex={1}>
         <PaletteCard isActive={isActive} showPreview={showPreview} setShowPreview={setShowPreview} colorPreview={colorPreview} setColorPreview={setColorPreview} />
       </Grid2>
 
-      {/* Drawer for preview */}
-      <Drawer anchor="right" open={showPreview} onClose={() => setShowPreview(false)} PaperProps={{ sx: { width: 500 } }}>
-        <ColorsPreview colorPreview={colorPreview} setShowPreview={setShowPreview} />
-      </Drawer>
+      {showPreview && (
+        <Grid2 size={4} zIndex={1}>
+          <ColorsPreview colorPreview={colorPreview} setShowPreview={setShowPreview} />
+        </Grid2>
+      )}
     </Grid2>
   );
 }

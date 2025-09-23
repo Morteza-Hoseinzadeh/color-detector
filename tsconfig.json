@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/UI/3dModel/Model3D.jsx", "src/components/UI/3dModel/Outlines.tsx", "src/components/UI/3dModel/Model3D.js"],
   "exclude": ["node_modules"]
 }

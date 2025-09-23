@@ -12,16 +12,14 @@ import { GiGrapes } from 'react-icons/gi';
 export default function Header() {
   const { toggleTheme, isDarkMode } = useThemeMode();
 
-  const menuItems = ['Home', 'Profile', 'Explorer', 'Support', 'Help'];
+  const menuItems = ['Home', 'Profile', 'Projects', 'Explorer', 'Support', 'Help'];
 
   return (
     <Box sx={{ ...styles.header }}>
       {/* Menu Items Section */}
       <Box sx={styles.menuContainer}>
-        <Box display={'flex'} alignItems={'center'} color={'primary.main'} mr={1}>
-          <IconButton size="small" sx={styles.iconButton}>
-            <GiGrapes size={26} />
-          </IconButton>
+        <Box display={'flex'} alignItems={'center'} color={'primary.main'} mr={1} sx={{ cursor: 'pointer' }}>
+          <GiGrapes size={26} />
           <Typography variant="h6">AetherUI</Typography>
         </Box>
         {menuItems.map((item) => (
