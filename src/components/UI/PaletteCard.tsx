@@ -4,44 +4,27 @@ import { Grid2 } from '@mui/material';
 import { CiExport } from 'react-icons/ci';
 import { IoCopy } from 'react-icons/io5';
 
-export default function PaletteCard() {
+export default function PaletteCard({ isActive, showPreview, setShowPreview, colorPreview, setColorPreview }: any) {
   // Mock data for different design system categories
   const colorPalette = [
-    // Primary Colors from theme
-    { name: 'Primary Main', value: '#1e90ff', variable: '--color-primary-main' },
-    { name: 'Primary Light', value: '#63b3ed', variable: '--color-primary-light' },
-    { name: 'Primary Dark', value: '#0b60d1', variable: '--color-primary-dark' },
+    // Primary Blues
+    { name: 'Blue 50', value: '#e3f2fd', variable: '--blue-50' },
+    { name: 'Blue 100', value: '#bbdefb', variable: '--blue-100' },
+    { name: 'Blue 200', value: '#90caf9', variable: '--blue-200' },
+    { name: 'Blue 300', value: '#64b5f6', variable: '--blue-300' },
+    { name: 'Blue 400', value: '#42a5f5', variable: '--blue-400' },
+    { name: 'Blue 500 (Primary Main)', value: '#2196f3', variable: '--blue-500' },
+    { name: 'Blue 600', value: '#1e88e5', variable: '--blue-600' },
+    { name: 'Blue 700 (Primary Dark)', value: '#1976d2', variable: '--blue-700' },
+    { name: 'Blue 800', value: '#1565c0', variable: '--blue-800' },
+    { name: 'Blue 900', value: '#0d47a1', variable: '--blue-900' },
 
-    // Secondary Colors from theme
-    { name: 'Secondary Main', value: '#8950F7', variable: '--color-secondary-main' },
-    { name: 'Secondary Light', value: '#9b59b6', variable: '--color-secondary-light' },
-    { name: 'Secondary Dark', value: '#4b0082', variable: '--color-secondary-dark' },
-
-    // Background Colors from theme
-    { name: 'Background Default', value: '#f4f4f4', variable: '--background-default' },
-    { name: 'Background Paper', value: '#e9e9e9', variable: '--background-paper' },
-
-    // Text Colors from theme
-    { name: 'Text Primary', value: '#333333', variable: '--text-primary' },
-    { name: 'Text Secondary', value: '#4b0082', variable: '--text-secondary' },
-
-    // Divider Color from theme
-    { name: 'Divider', value: '#cccccc', variable: '--divider' },
-
-    // Additional Blues (your existing palette)
-    { name: 'Secondary Blue', value: '#187bcd', variable: '--color-secondary-blue' },
-    { name: 'Light Blue', value: '#5eaaff', variable: '--color-light-blue' },
-
-    // Success, Error, Warning Colors (commonly used)
-    { name: 'Success', value: '#4caf50', variable: '--color-success' },
-    { name: 'Error', value: '#f44336', variable: '--color-error' },
-    { name: 'Warning', value: '#ff9800', variable: '--color-warning' },
-    { name: 'Info', value: '#2196f3', variable: '--color-info' },
-
-    // Grayscale for completeness
-    { name: 'Gray Light', value: '#f8f9fa', variable: '--gray-light' },
-    { name: 'Gray Medium', value: '#6c757d', variable: '--gray-medium' },
-    { name: 'Gray Dark', value: '#343a40', variable: '--gray-dark' },
+    // Accent / Variations
+    { name: 'Sky Blue', value: '#87ceeb', variable: '--sky-blue' },
+    { name: 'Deep Sky Blue', value: '#00bfff', variable: '--deep-sky-blue' },
+    { name: 'Dodger Blue', value: '#1e90ff', variable: '--dodger-blue' },
+    { name: 'Royal Blue', value: '#4169e1', variable: '--royal-blue' },
+    { name: 'Navy', value: '#000080', variable: '--navy' },
   ];
 
   const shadows = [
@@ -79,7 +62,7 @@ export default function PaletteCard() {
       {/* Header */}
       <Box display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
         <Typography variant="h5" fontWeight={'bold'} color="primary.main" gutterBottom>
-          zephyr-project
+          {isActive}
         </Typography>
         <Tooltip title="Export as JSON" placement="left">
           <IconButton>
@@ -95,7 +78,7 @@ export default function PaletteCard() {
         </Typography>
         <Grid2 container spacing={2}>
           {colorPalette.map((color, index) => (
-            <Grid2 key={index} size={4} sx={{ ...styles.gridItem, cursor: 'pointer' }}>
+            <Grid2 key={index} size={3} sx={{ ...styles.gridItem, cursor: 'pointer' }} onClick={() => setShowPreview(!showPreview)}>
               <Box sx={{ ...styles.colorBox, backgroundColor: color.value }} />
               <Typography variant="body2" sx={styles.itemName} fontWeight="bold">
                 {color.name}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, Typography, Chip, IconButton, Tooltip, Grid2 } from '@mui/material';
 import { IoCheckmarkCircle, IoClose, IoCopyOutline } from 'react-icons/io5';
 
-export default function ColorsPreview() {
+export default function ColorsPreview({ colorPreview, setShowPreview }: any) {
   const [copiedColor, setCopiedColor] = useState(null);
 
   const colorConfig = {
@@ -81,7 +81,7 @@ export default function ColorsPreview() {
           <Typography variant="h6" gutterBottom>
             Primary Color
           </Typography>
-          <IconButton>
+          <IconButton onClick={() => setShowPreview(false)}>
             <IoClose />
           </IconButton>
         </Box>
@@ -169,7 +169,7 @@ const styles = {
     maxWidth: 1200,
     margin: '0 auto',
     overflow: 'auto', // Added overflow to main container
-    maxHeight: '85vh', // Ensure it doesn't exceed viewport height
+    maxHeight: '100vh', // Ensure it doesn't exceed viewport height
   },
   section: {
     mb: 4,

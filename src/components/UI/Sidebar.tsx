@@ -5,15 +5,7 @@ import { Box, Divider, Typography } from '@mui/material';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { IoIosArrowForward } from 'react-icons/io';
 
-export default function Sidebar() {
-  const [isActive, setIsActive] = useState('zephyr-project');
-
-  const mocks_project = [
-    { id: 'abcdefg-1234', title: 'zephyr-project' },
-    { id: 'hijklm-5678', title: 'dourna-clinic-project' },
-    { id: 'nopqrs-9101', title: 'zichat-project' },
-  ];
-
+export default function Sidebar({ isActive, setIsActive, mocks_project }: any) {
   const handleProjectClick = (projectTitle: any) => {
     setIsActive(projectTitle);
   };
@@ -24,7 +16,7 @@ export default function Sidebar() {
         <Typography gutterBottom>Recent's</Typography>
         <Divider orientation="horizontal" />
         <Box mt={2}>
-          {mocks_project.map((project, index) => {
+          {mocks_project.map((project: any, index: number) => {
             const isProjectActive = project.title === isActive;
             return (
               <Box
