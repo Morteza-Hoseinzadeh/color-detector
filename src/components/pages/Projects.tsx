@@ -8,7 +8,7 @@ import Sidebar from '@/components/UI/Sidebar';
 import PaletteCard from '../UI/PaletteCard';
 import ColorsPreview from '../UI/ColorsPreview';
 
-export default function Home() {
+export default function Projects() {
   const [showPreview, setShowPreview] = useState(false);
   const [colorPreview, setColorPreview] = useState('');
   const [isActive, setIsActive] = useState('zephyr-project');

@@ -2,12 +2,12 @@
 
 import React from 'react';
 import { Box } from '@mui/material';
-import Home from '@/components/pages/Home';
+import Projects from '@/components/pages/Projects';
 
 export default function page() {
   return (
     <Box mx={2}>
-      <Home />
+      <Projects />
     </Box>
   );
 }
