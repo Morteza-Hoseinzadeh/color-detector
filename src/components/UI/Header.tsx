@@ -12,7 +12,7 @@ import { GiGrapes } from 'react-icons/gi';
 export default function Header() {
   const { toggleTheme, isDarkMode } = useThemeMode();
 
-  const menuItems = ['Finder', 'File', 'Edit', 'View', 'Go', 'Window', 'Help'];
+  const menuItems = ['Home', 'Profile', 'Explorer', 'Support', 'Help'];
 
   return (
     <Box sx={{ ...styles.header }}>
