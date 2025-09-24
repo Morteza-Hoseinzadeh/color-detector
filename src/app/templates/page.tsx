@@ -3,12 +3,12 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
-import Projects from '@/components/pages/projects';
+import Templates from '@/components/pages/templates';
 
 export default function page() {
   return (
     <Box mx={2}>
-      <Projects />
+      <Templates />
     </Box>
   );
 }

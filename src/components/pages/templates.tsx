@@ -5,10 +5,10 @@ import { Grid2, Drawer } from '@mui/material';
 
 import Header from '../UI/Header';
 import Sidebar from '@/components/UI/Sidebar';
-import PaletteCard from '../UI/projects/PaletteCard';
-import ColorsPreview from '../UI/projects/ColorsPreview';
+import PaletteCard from '../UI/templates/PaletteCard';
+import ColorsPreview from '../UI/templates/ColorsPreview';
 
-export default function Projects() {
+export default function Templates() {
   const [showPreview, setShowPreview] = useState(false);
   const [colorPreview, setColorPreview] = useState('');
   const [isActive, setIsActive] = useState('zephyr-project');

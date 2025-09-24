@@ -55,13 +55,13 @@ export default function Footer() {
           {/* Brand Section */}
           <Grid2 size={{ xs: 12, md: 4 }}>
             <Typography variant="h5" fontWeight="bold" gutterBottom sx={{ background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`, backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
-              DesignSystem AI
+              ChromaUI
             </Typography>
             <Typography variant="body2" color="text.primary" sx={{ mb: 3, lineHeight: 1.6 }}>
               Build, manage, and deploy beautiful design systems with AI-powered tools. Transform your workflow and create consistent, accessible interfaces faster.
             </Typography>
             <Typography variant="body2" color="text.primary">
-              © {currentYear} DesignSystem AI. All rights reserved.
+              © {currentYear} ChromaUI. All rights reserved.
             </Typography>
           </Grid2>
 
