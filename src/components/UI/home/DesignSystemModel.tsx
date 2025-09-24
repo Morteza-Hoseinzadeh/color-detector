@@ -74,7 +74,26 @@ export default function DesignSystemModel() {
           </Grid2>
 
           {/* AI Deployment Button */}
-          <Button variant="contained" fullWidth startIcon={<IoMdRocket />} endIcon={<GiSparkles />} sx={{ background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`, borderRadius: 3, py: 1.5, fontWeight: 'bold', fontSize: '1rem', textTransform: 'none', transition: 'all 0.3s ease', '&:hover': { transform: 'translateY(-2px)', boxShadow: `0 8px 24px ${theme.palette.primary.main}40` } }}>
+          <Button
+            variant="contained"
+            fullWidth
+            startIcon={<IoMdRocket />}
+            endIcon={<GiSparkles />}
+            sx={{
+              background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+              padding: '12px 48px',
+              fontSize: '1rem',
+              fontWeight: '700',
+              borderRadius: 3,
+              boxShadow: `0 4px 20px 0 ${theme.palette.primary.main}30`,
+              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+              position: 'relative',
+              overflow: 'hidden',
+              '&::before': { content: '""', position: 'absolute', top: 0, left: '-100%', width: '100%', height: '100%', background: `linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)`, transition: 'left 0.5s' },
+              '&:hover': { transform: 'translateY(-3px)', boxShadow: `0 8px 30px 0 ${theme.palette.primary.main}50`, '&::before': { left: '100%' } },
+              '&:active': { transform: 'translateY(-1px)' },
+            }}
+          >
             Deploy with AI Assistant
           </Button>
 
