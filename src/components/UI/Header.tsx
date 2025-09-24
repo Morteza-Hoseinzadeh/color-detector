@@ -16,14 +16,14 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'Features', href: '#features' },
-    { label: 'Components', href: '#components' },
-    { label: 'API Docs', href: '#api-docs' },
-    { label: 'Templates', href: '#templates' },
-    { label: 'Theming', href: '#theming' },
-    { label: 'Examples', href: '#examples' },
-    { label: 'Pricing', href: '#pricing' },
+    { label: 'Home', href: '/' },
+    { label: 'Features', href: 'features' },
+    { label: 'Components', href: 'components' },
+    { label: 'API Docs', href: 'api-docs' },
+    { label: 'Templates', href: 'templates' },
+    { label: 'Theming', href: 'theming' },
+    { label: 'Examples', href: 'examples' },
+    { label: 'Pricing', href: 'pricing' },
   ];
 
   const handleDrawerToggle = () => {
