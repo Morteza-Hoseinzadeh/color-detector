@@ -7,16 +7,23 @@ export const useThemeMode = () => {
   const dispatch = useDispatch();
   const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
 
-  // Optional: persist in localStorage
+  // Initialize theme on first load
   React.useEffect(() => {
-    const savedMode = localStorage.getItem('themeMode');
+    const savedMode = localStorage.getItem('system-theme-mode');
+
     if (savedMode) {
       dispatch(setThemeMode(savedMode === 'dark'));
+    } else {
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      dispatch(setThemeMode(systemPrefersDark));
     }
   }, [dispatch]);
 
+  // Save theme changes to localStorage
   React.useEffect(() => {
-    localStorage.setItem('themeMode', isDarkMode ? 'dark' : 'light');
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('system-theme-mode', isDarkMode ? 'dark' : 'light');
+    }
   }, [isDarkMode]);
 
   const theme = isDarkMode ? darkTheme : lightTheme;

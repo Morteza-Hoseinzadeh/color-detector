@@ -41,7 +41,7 @@ export default function ContactSection() {
     {
       icon: <IoLocation size={24} />,
       title: 'Visit Us',
-      details: 'Tehran Azadi, IR',
+      details: 'Tehran, IR',
       description: 'Come say hello at our office',
     },
   ];
