@@ -195,7 +195,7 @@ export default function ComponentsSection() {
                   </Box>
 
                   {/* View More Button */}
-                  <Button fullWidth variant="outlined" endIcon={<FaArrowRight />} sx={{ mt: 3, py: 1.5, background: `linear-gradient(45deg, transparent, ${theme.palette.background.default})`, border: `1px solid ${theme.palette.divider}`, color: 'text.primary', fontWeight: '600', borderRadius: 2, transition: 'all 0.9s cubic-bezier(0.4, 0, 0.2, 1)', '&:hover': { background: category.gradient, borderColor: 'transparent', transform: 'translateY(-2px)', boxShadow: `0 8px 25px ${category.gradient.split('0%')[0]}40` } }}>
+                  <Button fullWidth disabled variant="outlined" endIcon={<FaArrowRight />} sx={{ mt: 3, py: 1.5, background: `linear-gradient(45deg, transparent, ${theme.palette.background.default})`, border: `1px solid ${theme.palette.divider}`, color: 'text.primary', fontWeight: '600', borderRadius: 2, transition: 'all 0.9s cubic-bezier(0.4, 0, 0.2, 1)', '&:hover': { background: category.gradient, borderColor: 'transparent', transform: 'translateY(-2px)', boxShadow: `0 8px 25px ${category.gradient.split('0%')[0]}40` } }}>
                     View {category.category}
                   </Button>
                 </CardContent>
