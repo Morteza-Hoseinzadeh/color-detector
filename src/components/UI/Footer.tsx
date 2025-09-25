@@ -43,7 +43,7 @@ export default function Footer() {
         { name: 'Help Center', href: '/help' },
         { name: 'Status', href: '/status' },
         { name: 'Contact Support', href: '/support' },
-        { name: 'API Docs', href: '/api' },
+        { name: 'Docs', href: '/api' },
       ],
     },
   ];

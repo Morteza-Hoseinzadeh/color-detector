@@ -31,7 +31,7 @@ type Props = {
 
 export default function AnimatedMotion({ children }: Props) {
   return (
-    <motion.div variants={containerVariants} initial="hidden" animate="show">
+    <motion.div variants={containerVariants} initial="hidden" animate="show" style={{ width: '100%' }}>
       {React.Children.map(children, (child) => (
         <motion.div variants={itemVariants}>{child}</motion.div>
       ))}

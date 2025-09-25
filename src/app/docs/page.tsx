@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import ApiDocsPage from '@/components/pages/apiDocs';
+import DocsPage from '@/components/pages/docs';
 import Footer from '@/components/UI/Footer';
 import Header from '@/components/UI/Header';
 import MetadataHeader from '@/utils/SEO/MetadataHeader';
@@ -12,7 +12,7 @@ export default function page() {
       <Box component={'main'}>
         <Header />
         <Box mx={2}>
-          <ApiDocsPage />
+          <DocsPage />
         </Box>
         <Footer />
       </Box>

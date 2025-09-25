@@ -19,7 +19,7 @@ export default function Header() {
     { label: 'Home', href: '/' },
     { label: 'Features', href: 'features' },
     { label: 'Components', href: 'components' },
-    { label: 'API Docs', href: 'api-docs' },
+    { label: 'Docs', href: 'docs' },
     { label: 'Templates', href: 'templates' },
     { label: 'Theming', href: 'theming' },
     { label: 'Examples', href: 'examples' },
@@ -111,17 +111,20 @@ export default function Header() {
 
 const styles = {
   headerWrapper: {
-    backgroundColor: 'background.default',
+    background: 'rgba(255, 255, 255, 0)',
+    borderRadius: '16px',
+    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+    backdropFilter: 'blur(10px)',
+    webkitBackdropFilter: 'blur(9.1px)',
     position: 'sticky',
     top: 0,
     zIndex: 1100,
-    backdropFilter: 'blur(10px)',
   },
 
   header: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: { xs: 'space-between', xl: 'space-around' },
     padding: '1rem 0',
     height: '70px',
   },
@@ -161,7 +164,7 @@ const styles = {
     alignItems: 'center',
     gap: '2rem',
 
-    '@media (max-width: 1024px)': {
+    '@media (max-width: 1280px)': {
       display: 'none',
     },
   },
@@ -232,7 +235,7 @@ const styles = {
     color: 'text.primary',
     padding: '0.5rem',
 
-    '@media (max-width: 1024px)': {
+    '@media (max-width: 1280px)': {
       display: 'flex',
     },
   },

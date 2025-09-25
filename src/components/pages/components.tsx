@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import { Container, Typography, Box, Grid2, Card, CardContent, Chip, Button, IconButton, Snackbar, Alert } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { FaCode, FaArrowRight, FaCopy, FaCheck } from 'react-icons/fa';
+import { FaCode, FaArrowRight, FaCheck } from 'react-icons/fa';
+import { IoCopy } from 'react-icons/io5';
 import CustomSnackbar from '../UI/custom/CustomSnackbar';
 
 const components = [
@@ -87,7 +88,10 @@ const installCommands = [
 export default function ComponentsSection() {
   const theme = useTheme();
   const [copiedCommand, setCopiedCommand] = useState<string | null>(null);
+
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMsg, setSnackbarMsg] = useState('');
+  const [snackbarVariant, setSnackbarVariant] = useState<'success' | 'warning' | 'error' | 'info'>('success');
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -113,6 +117,12 @@ export default function ComponentsSection() {
     } catch (err) {
       console.error('Failed to copy text: ', err);
     }
+  };
+
+  const handleShowCommingSoonSnackbar = () => {
+    setSnackbarOpen(true);
+    setSnackbarVariant('info');
+    setSnackbarMsg('Comming Soon!');
   };
 
   const handleSnackbarClose = () => {
@@ -144,18 +154,18 @@ export default function ComponentsSection() {
             <Grid2 container spacing={2}>
               {installCommands.map((cmd, index) => (
                 <Grid2 key={index} size={{ xs: 12, md: 6 }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', background: theme.palette.background.paper, border: `1px solid ${theme.palette.divider}`, borderRadius: 2, p: 2, transition: 'all 0.3s ease', '&:hover': { borderColor: theme.palette.primary.main, boxShadow: `0 4px 20px ${theme.palette.primary.main}15` } }}>
-                    <Typography sx={{ mr: 2, fontSize: '1.2rem' }}>{cmd.icon}</Typography>
+                  <Box sx={{ display: 'flex', alignItems: 'center', background: theme.palette.mode === 'dark' ? 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)' : 'linear-gradient(135deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.01) 100%)', border: `1px solid ${theme.palette.divider}`, borderRadius: 2, p: 2, transition: 'all 0.3s ease', position: 'relative', overflow: 'hidden', '&:hover': { transform: 'translateY(-2px)', borderColor: theme.palette.primary.main, boxShadow: `0 8px 30px ${theme.palette.primary.main}20` }, '&::before': { content: '""', position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: index === 0 ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : index === 1 ? 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' : index === 2 ? 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' : 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)' } }}>
+                    <Typography sx={{ mr: 2, fontSize: '1.5rem', filter: 'grayscale(0.3)' }}>{cmd.icon}</Typography>
                     <Box sx={{ flex: 1 }}>
-                      <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', mb: 0.5 }}>
+                      <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', mb: 0.5, textTransform: 'uppercase', fontWeight: 600, letterSpacing: '0.5px' }}>
                         {cmd.packageManager}
                       </Typography>
-                      <Typography variant="body1" fontFamily="monospace" sx={{ wordBreak: 'break-all' }}>
+                      <Typography variant="body1" fontFamily="monospace" sx={{ wordBreak: 'break-all', background: theme.palette.mode === 'dark' ? 'linear-gradient(45deg, #fff 30%, #aaa 100%)' : 'linear-gradient(45deg, #000 30%, #444 100%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent', fontWeight: 600 }}>
                         {cmd.command}
                       </Typography>
                     </Box>
-                    <IconButton onClick={() => copyToClipboard(cmd.command)} sx={{ color: copiedCommand === cmd.command ? theme.palette.success.main : theme.palette.text.secondary, transition: 'all 0.3s ease' }}>
-                      {copiedCommand === cmd.command ? <FaCheck /> : <FaCopy />}
+                    <IconButton onClick={() => copyToClipboard(cmd.command)} sx={{ color: copiedCommand === cmd.command ? theme.palette.success.main : theme.palette.text.secondary, transition: 'all 0.3s ease', background: theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', '&:hover': { background: theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.1)', transform: 'scale(1.1)' } }}>
+                      {copiedCommand === cmd.command ? <FaCheck /> : <IoCopy />}
                     </IconButton>
                   </Box>
                 </Grid2>
@@ -195,7 +205,7 @@ export default function ComponentsSection() {
                   </Box>
 
                   {/* View More Button */}
-                  <Button fullWidth disabled variant="outlined" endIcon={<FaArrowRight />} sx={{ mt: 3, py: 1.5, background: `linear-gradient(45deg, transparent, ${theme.palette.background.default})`, border: `1px solid ${theme.palette.divider}`, color: 'text.primary', fontWeight: '600', borderRadius: 2, transition: 'all 0.9s cubic-bezier(0.4, 0, 0.2, 1)', '&:hover': { background: category.gradient, borderColor: 'transparent', transform: 'translateY(-2px)', boxShadow: `0 8px 25px ${category.gradient.split('0%')[0]}40` } }}>
+                  <Button fullWidth variant="outlined" onClick={handleShowCommingSoonSnackbar} endIcon={<FaArrowRight />} sx={{ mt: 3, py: 1.5, background: `linear-gradient(45deg, transparent, ${theme.palette.background.default})`, border: `1px solid ${theme.palette.divider}`, color: 'text.primary', fontWeight: '600', borderRadius: 2, transition: 'all 0.9s cubic-bezier(0.4, 0, 0.2, 1)', '&:hover': { background: category.gradient, borderColor: 'transparent', transform: 'translateY(-2px)', boxShadow: `0 8px 25px ${category.gradient.split('0%')[0]}40` } }}>
                     View {category.category}
                   </Button>
                 </CardContent>
@@ -223,8 +233,10 @@ export default function ComponentsSection() {
             </Box>
           </Box>
         </Box>
-        <CustomSnackbar variant="success" open={snackbarOpen} autoHideDuration={5000} onClose={handleSnackbarClose}>
-          Copied to clipboard!
+
+        {/* Custom snackbar component */}
+        <CustomSnackbar variant={snackbarVariant} open={snackbarOpen} autoHideDuration={3000} onClose={handleSnackbarClose}>
+          {snackbarMsg}
         </CustomSnackbar>
       </Container>
     </Box>
