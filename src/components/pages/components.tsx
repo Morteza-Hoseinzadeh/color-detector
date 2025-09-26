@@ -1,10 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
+
+// Mui imports
 import { Container, Typography, Box, Grid2, Card, CardContent, Chip, Button, IconButton, Snackbar, Alert } from '@mui/material';
+
+// Utils
 import { useTheme } from '@mui/material/styles';
+
+// Icons
 import { FaCode, FaArrowRight, FaCheck } from 'react-icons/fa';
 import { IoCopy } from 'react-icons/io5';
+
+// Component
 import CustomSnackbar from '../UI/custom/CustomSnackbar';
 
 const components = [
